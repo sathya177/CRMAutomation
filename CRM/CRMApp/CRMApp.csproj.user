@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <StartArguments>{%27source%27:%27DEV%27,solutions:[%27AllComponentsAll%27,],%27targets%27:[%27QA%27,],%27managed%27:true,%27overwritten%27:true}
+</StartArguments>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ProjectView>ShowAllFiles</ProjectView>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <StartArguments>{%27source%27:%27DEV%27,solutions:[%27AllComponentsAll%27,],%27targets%27:[%27QA%27,],%27managed%27:false,%27overwritten%27:true}</StartArguments>
+  </PropertyGroup>
+</Project>
