@@ -15,7 +15,9 @@ namespace CRMSolution
     {
         static void Main(string[] args)
         {
-            
+
+            try
+            {
                 string srcConnectionString = ConfigurationManager.ConnectionStrings[args[0]].ConnectionString;
                 string paths = ConfigurationManager.AppSettings["path"].ToString();
                 using (HttpClient client = Helper.GetHttpClient(
@@ -26,6 +28,11 @@ namespace CRMSolution
                     Console.WriteLine("Connection Established");
                     return;
                 }
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(string.Format("Failed to retrieve  solutions from the selected instance"), ex);
+            }
            
         }
         static void RetrieveSolutions(HttpClient client, string path)
@@ -47,7 +54,7 @@ namespace CRMSolution
 
             }
             else
-            { throw new Exception(string.Format("Failed to get  solutionID", response.Content)); }
+            { throw new Exception(string.Format("Failed to retrieve  solutions", response.Content)); }
 
         }
     }
